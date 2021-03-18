@@ -4,7 +4,7 @@
 
 A way to generate fractal patterns, conceived as a mathematical theory of plant development/ bacteria growth.
 
-I am choosing to use these so that can simulate this organic growth.
+I am choosing to use these so that I can simulate this organic growth.
 
 With L-systems, you are using recursion to apply a set of rules to a string of symbols. With each iteration, the rules are applied to each character, resulting in new characters.
 
