@@ -9,6 +9,7 @@
 
 import turtle
 
+#starting screen
 s = turtle.getscreen()
 newTurtle = turtle.Turtle()
 
