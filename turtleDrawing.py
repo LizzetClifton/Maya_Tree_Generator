@@ -19,9 +19,11 @@ angle = 60
 axiom = "F++F++F"
 
 gen = 0
-desiredGenerations = 3
+desiredGenerations = 1
+newInput = ""
 
 def drawing(i):
+    print("running drawing for: ", i)
     for char in i:
         if (char == "F"):
             newTurtle.forward(distance)
@@ -46,17 +48,21 @@ def nextGen(x):
             newX = newX + "+"
         elif (char =="-"):
             newX = newX + "-"
-    print("newX: ", newX)
+    # print("newX: ", newX)
     return newX
 
 def run(j):
+    print("running run for :", j)
     global gen
     global desiredGenerations
-    newInput = ""
-    while gen <= desiredGenerations:
+    global newInput
+    while gen < desiredGenerations:
+        print("we are on gen", gen)
         newInput = nextGen(j)
+        print("newinput", newInput)
         gen = gen + 1
         run(newInput)
+    print("double checking new input:", newInput)
     return newInput
         
 
@@ -64,4 +70,3 @@ drawing(run(axiom))
 
 turtle.done()
 
-#right now its only working for two generations
