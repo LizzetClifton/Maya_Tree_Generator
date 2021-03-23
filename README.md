@@ -19,15 +19,31 @@ For example:
 Say our axiom is the letter "a", and we have two rules. The first rule is a --> aba
 The second rule is b --> bb
 
-This is what each generation would become.
+This is what each generation would become (the generations below are spaced out for visual purposes)
 
 Generation 0: a
 Generation 1: aba
-Generation 2: ababbaba
-Generation 3: ababbababbbbababbaba
+Generation 2: aba bb aba
+Generation 3: aba bb aba bb bb aba bb aba
 
-### Deterministic L-Systems
+### Context-Free vs. Context-Sensitive L-Systems
 
+These types of L-Systems are what is called "context-free". This means that when each character is being translated, the rules don't take into account who its neighbors are or where it is in the string. The opposite is known as a context-sensitive L-System
 
-### Non-Deterministic L-Systems
-Stochastic systems.
+### Deterministic vs. Non-Deterministic L-Systems
+
+If an L-System is deterministic, this means that there is always exactly one output for each symbol.
+
+In contrast, non-deterministic L-Systems, or Stochastic systems, means that there are several possible outputs for each symbol and each output has a probability of being chosen. These systems usually create outputs that resemble organic figures.
+
+### Bracketed L-Systems
+
+### My Project
+
+In this project, I will be implementing a Stochastic L-System within a tree generator. 
+
+### References
+
+https://jsantell.com/l-systems/ 
+
+https://medium.com/@hhtun21/l-systems-draw-your-first-fractals-139ed0bfcac2
