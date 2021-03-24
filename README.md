@@ -25,7 +25,7 @@ Generation 3: ababbababbbbababbaba
 
 When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called turtleDrawing.py where I implement a common graphical object known as a "Snowflake Curve". Here you can see the construction of this curve.
 
-![Snowflake Curve Construction](../snowflake.png?raw=true "Title")
+![Snowflake Curve Construction](/snowflake.png?raw=true "Title")
 
 ### Context-Free vs. Context-Sensitive L-Systems
 
