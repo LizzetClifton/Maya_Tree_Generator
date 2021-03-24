@@ -24,7 +24,7 @@ This is what each generation would become
 - Generation 2: ababbaba
 - Generation 3: ababbababbbbababbaba
 
-When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called turtleDrawing.py where I implement a common graphical object known as a "Snowflake Curve"using an L-system. Here you can see the construction of this curve.
+When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called snowflakeCurve.py where I implement a common graphical object known as a "Snowflake Curve"using an L-system. Here you can see the construction of this curve.
 
 ![Snowflake Curve Construction](/snowflake.png?raw=true "Title")
 
