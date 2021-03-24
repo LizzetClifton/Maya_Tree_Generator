@@ -1,11 +1,8 @@
 #in this file, I will experiment with a simple L-System using a common alphabet
 
 #F: Draw a line and move forward
-#G: Move forward without drawing a line
 #+: Turn right
 #-: Turn left
-#[: Save current location
-#]: Restore previous location
 
 import turtle
 
@@ -22,10 +19,15 @@ angle = 60
 #this is the string that we are starting with
 axiom = "F++F++F"
 
+#here, I am creating a dictionary that will store the rules.
+rules = {"F" : "F-F++F-F",  
+         "+" : "+",  
+         "-" : "-"}
+
 #setting a counter for the generations
 gen = 1
 #setting a variable for how many generations we want to run
-desiredGenerations = 4
+desiredGenerations = 3
 
 #created a string variable to hold each generation's string
 newInput = ""
@@ -35,11 +37,6 @@ def drawing(i):
     for char in i:
         if (char == "F"):
             newTurtle.forward(distance)
-        elif (char == "G"):
-            #we are adding the pun up and down because we want this movement to be a translation without drawing
-            newTurtle.penup()
-            newTurtle.forward(distance)
-            newTurtle.pendown()
         elif (char == "+"):
             newTurtle.right(angle)
         elif (char =="-"):
@@ -47,17 +44,10 @@ def drawing(i):
 
 #our function for translating the current string to the next generation based on our rules
 def nextGen(x):
-    #I added an empty string here because replacing and translating each character in the original string would be messy. this way, we can go through each character in the input, translate it, and add that to the new string "newX"
+    #I added an empty string here because replacing and translating each character in the original string would be messy. this way, we can go through each character in the input, translate it using the dictionary, and add that to the new string "newX"
     newX = ""
     for char in x:
-        if (char == "F"):
-            newX = newX + "F-F++F-F"
-        elif (char == "G"):
-            newX = newX + "G"
-        elif (char == "+"):
-            newX = newX + "+"
-        elif (char =="-"):
-            newX = newX + "-"
+        newX = newX + rules.get(char)
     return newX
 
 #our recursive function
