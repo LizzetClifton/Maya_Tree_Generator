@@ -8,12 +8,14 @@ With L-systems, you are using simple rules to rewrite and replace parts of an ob
 
 An L-system for rewriting strings generally has the following components:
 
+- An alphabet, which contains the allowed characters.
 - An axiom, which is the character we start with.
-- A rule set, which is the set of rules applied to each character each iteration.
+- A rule set, which is the set of rules applied to each character each generation.
 
 For example:
 
-Say our axiom is the letter "a", and we have two rules. The first rule is a --> aba (meaning that the character "a" will become the string "aba" the next generation)
+Say our axiom is the letter "a", and we have two rules. 
+The first rule is a --> aba (meaning that the character "a" will become the string "aba" the next generation)
 The second rule is b --> bb (meaning that the character "b" will become the string "bb" the next generation)
 
 This is what each generation would become
@@ -23,9 +25,11 @@ Generation 1: aba
 Generation 2: ababbaba
 Generation 3: ababbababbbbababbaba
 
-When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called turtleDrawing.py where I implement a common graphical object known as a "Snowflake Curve". Here you can see the construction of this curve.
+When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called turtleDrawing.py where I implement a common graphical object known as a "Snowflake Curve"using an L-system. Here you can see the construction of this curve.
 
 ![Snowflake Curve Construction](../snowflake.png?raw=true "Title")
+
+As you can see, we are starting with an equilateral triangle as the initiator. The generator is a line with additional angles added in the middle. For this particular curve, we are replacing every line segment with the generator. The first iteration would create a hexagon, and the following generations would begin to create a snowflake shape.
 
 ### Context-Free vs. Context-Sensitive L-Systems
 
