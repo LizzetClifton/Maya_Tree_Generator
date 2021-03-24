@@ -2,29 +2,30 @@
 
 ## Lindenmayer Systems (L-Systems)
 
-A way to generate fractal patterns, conceived as a mathematical theory of plant development/ bacteria growth.
+L-Systems have many uses, but the application relevant to this project is for generating realistic models of organic plant development and growth.
 
-I am choosing to use these so that I can simulate this organic growth.
+With L-systems, you are using simple rules to rewrite and replace parts of an object in order to create a larger and more complex whole. This is usually accomplished with recursion. I will explain this concept with an example for rewriting strings.
 
-With L-systems, you are using recursion to apply a set of rules to a string of symbols. With each iteration, the rules are applied to each character, resulting in new characters.
+An L-system for rewriting strings generally has the following components:
 
-An L-system has the following components:
-
-- An alphabet, which are the characters that are allowed.
-- An axiom, which is the character we start with. The character at generation 0.
+- An axiom, which is the character we start with.
 - A rule set, which is the set of rules applied to each character each iteration.
 
 For example:
 
-Say our axiom is the letter "a", and we have two rules. The first rule is a --> aba
-The second rule is b --> bb
+Say our axiom is the letter "a", and we have two rules. The first rule is a --> aba (meaning that the character "a" will become the string "aba" the next generation)
+The second rule is b --> bb (meaning that the character "b" will become the string "bb" the next generation)
 
-This is what each generation would become (the generations below are spaced out for visual purposes)
+This is what each generation would become
 
 Generation 0: a
 Generation 1: aba
-Generation 2: aba bb aba
-Generation 3: aba bb aba bb bb aba bb aba
+Generation 2: ababbaba
+Generation 3: ababbababbbbababbaba
+
+When we are dealing with graphical objects instead of strings, we would begin with an initiator (similar to the axiom) and a generator (our rule set). In this repository, there is a file called turtleDrawing.py where I implement a common graphical object known as a "Snowflake Curve". Here you can see the construction of this curve.
+
+![Snowflake Curve Construction](../snowflake.png?raw=true "Title")
 
 ### Context-Free vs. Context-Sensitive L-Systems
 
