@@ -4,7 +4,7 @@
 
 L-Systems are mathematical systems for using rules to rewrite and replace parts of an object in order to create a larger and more complex whole. You begin with one object and use your rules to change it every generation (iteration, frame, etc.). This is usually accomplished with recursion. 
 
-Below, I will explain the basic concept of L-Systems in a more painless way with an example for rewriting strings. If you are familiar with L-Systems, feel free to skip to the "My Project" section. 
+Below, I will first explain the basic concept of L-Systems in a more painless way with an example for rewriting strings. If you are familiar with L-Systems, feel free to skip to the "My Project" section. 
 
 An L-system for rewriting strings generally has the following components:
 
@@ -33,6 +33,8 @@ When we are dealing with graphical objects instead of strings, we would begin wi
 
 As you can see, we are starting with an equilateral triangle as the initiator. The generator is a line with additional angles added in the middle. For this particular curve, we are replacing every line segment with the generator on every new generation. The first iteration after the initiator would create a hexagon, and the following generations would begin to create a snowflake shape.
 
+![Snowflake Curve Iterations](/snowflakeiterations.png?raw=true "Title")
+
 ### Context-Free vs. Context-Sensitive L-Systems
 
 These types of L-Systems are what is called "context-free". This means that when each character is being translated, the rules don't take into account who its neighbors are or where it is in the string. The opposite is known as a context-sensitive L-System
@@ -53,7 +55,7 @@ L-Systems have many uses, but the application relevant to this project is for ge
 
 
 
-### References
+## References
 
 "Lecture Notes in Biomathematics" by Przemyslaw Prusinkiewicz & James Hanan
 
@@ -61,3 +63,4 @@ https://jsantell.com/l-systems/
 
 https://medium.com/@hhtun21/l-systems-draw-your-first-fractals-139ed0bfcac2
 
+http://mypages.iit.edu/~maslanka/KochSnowflake.pdf 
