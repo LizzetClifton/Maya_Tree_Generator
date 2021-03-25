@@ -1,4 +1,4 @@
-#in this file, I will experiment with a simple L-System using a common alphabet
+#in this file, I will implement a Koch Snowflake Curve using an L-System
 
 #F: Draw a line and move forward
 #+: Turn right
@@ -6,33 +6,27 @@
 
 import turtle
 
-#starting screen
 s = turtle.getscreen()
-#making a turtle
 newTurtle = turtle.Turtle()
 
-#creating a distance variable (for moving forward)
-distance = 25
-#creating an angle variable (for turns)
-angle = 60
+distance = 25 #length of forward move
+angle = 60 #angle for turns
 
-#this is the string that we are starting with
+#the string that we are starting with
 axiom = "F++F++F"
 
-#here, I am creating a dictionary that will store the rules.
+#creating a dictionary that will store the rules.
 rules = {"F" : "F-F++F-F",  
          "+" : "+",  
          "-" : "-"}
 
-#setting a counter for the generations
-gen = 1
-#setting a variable for how many generations we want to run
-desiredGenerations = 3
+gen = 1 #counter for the generation we are on
+desiredGenerations = 3 #variable for how many generations we want to run
 
-#created a string variable to hold each generation's string
+#will hold each generation's string
 newInput = ""
 
-#our drawing function. Here, we use the alphabet we identified earlier to define what actions our turtle needs to take for every character it comes across in the string
+#here, we use the alphabet we identified earlier to define what actions our turtle needs to take for every character it comes across in the string
 def drawing(i):
     for char in i:
         if (char == "F"):
@@ -42,7 +36,7 @@ def drawing(i):
         elif (char =="-"):
             newTurtle.left(angle)
 
-#our function for translating the current string to the next generation based on our rules
+#function for translating the current string to the next generation based on our rules
 def nextGen(x):
     #I added an empty string here because replacing and translating each character in the original string would be messy. this way, we can go through each character in the input, translate it using the dictionary, and add that to the new string "newX"
     newX = ""
@@ -56,23 +50,17 @@ def run(j):
     global desiredGenerations
     #remember, newInput is the variable that will hold each generation's string
     global newInput
-    while gen < desiredGenerations:
-        #we are putting the value from our nextGen function into newInput
-        newInput = nextGen(j)
-        #incrementing gen variable
-        gen = gen + 1
-        #using recursion to run this function with the new input
-        run(newInput)
     #checking if we only want to run this once (the axiom would not be translated)
     if (desiredGenerations == 1):
         return axiom
-    #finally, we return newInput when our gen variable is equal to our desiredGen variable. We are returning newInput because this is the final string that we will feed into the drawing function
+    while gen < desiredGenerations:
+        newInput = nextGen(j)
+        gen = gen + 1
+        run(newInput)
+    #we return newInput when our gen variable is equal to our desiredGen variable because this is the final string that we will feed into the drawing function
     return newInput
-
-#calling our drawing function with the output of run(axiom) as the parameter 
+ 
 drawing(run(axiom))
-
-#finished with turtle
 turtle.done()
 
 #References: 
