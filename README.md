@@ -1,6 +1,5 @@
 # Maya Tree Generator Project
 
-
 L-Systems have many uses, but the application relevant to this project is for generating realistic models of organic plant development and growth. In this project, I will be implementing a Stochastic L-System within a tree generator.
 
 It is important to recognize that in the natural world, different parts of a plants grow at different rates and to varying sizes. For example, the branches of a tree will always be smaller and thinner than its trunk. 
