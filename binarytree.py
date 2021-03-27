@@ -1,19 +1,25 @@
 #this file will be my first python experimentation with drawing bracketed l-systems
 
 import turtle
+from collections import deque
 
 s = turtle.getscreen()
-
-axiom = "F++F++F"
-
-rules = {"F" : "F-F++F-F",  
+newTurtle = turtle.Turtle()
+newTurtle.speed(3)
+newTurtle.setheading(90)
+axiom = "F"
+rules = {"F" : "G[+F]-F",
+         "G" : "GG", #G is also for moving forward, but it wont be replaced by F's rule
          "+" : "+",  
          "-" : "-",
-         "[" : "",
-         "]" : ""}
-
+         "[" : "[",
+         "]" : "]"}
 gen = 1 
-desiredGenerations = 3
+desiredGenerations = 6
+distance = 15
+angle = 30
+
+stack = deque()
 
 #will hold each generation's string
 newInput = ""
@@ -21,17 +27,26 @@ newInput = ""
 def drawing(i):
     for char in i:
         if (char == "F"):
+            newTurtle.pencolor("green")
             newTurtle.forward(distance)
+        elif (char == "G"):
+            newTurtle.pencolor("black")
+            newTurtle.forward(10)
         elif (char == "+"):
             newTurtle.right(angle)
         elif (char =="-"):
             newTurtle.left(angle)
         elif (char =="["):
             #save position, push to stack
-            push()
+            currentState = [newTurtle.pos(), newTurtle.heading()]
+            stack.append(currentState)
         elif (char =="]"):
             #return to position, pop
-            pop()
+            oldState = stack.pop()
+            newTurtle.penup()
+            newTurtle.setpos(oldState[0])
+            newTurtle.setheading(oldState[1])
+            newTurtle.pendown()
 
 def nextGen(x):
     newX = ""
