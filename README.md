@@ -61,3 +61,6 @@ https://jsantell.com/l-systems/
 https://medium.com/@hhtun21/l-systems-draw-your-first-fractals-139ed0bfcac2
 
 http://mypages.iit.edu/~maslanka/KochSnowflake.pdf 
+
+https://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=__files_GUID_B968733D_B288_4DAF_9685_4676DC3E4E94_htm
+
